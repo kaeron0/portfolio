@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Osteria del Fico – Italian restaurant</title>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f1f6;--ink:#2a0f26;--mute:#6a5063;--acc:#b5173b;--on:#fff;--line:#dccbd6;--card:#fff;--hero:#2a0f26;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17081a;--ink:#f6eaf3;--mute:#b9a0b2;--acc:#ff6b87;--on:#1b0a19;--line:#3a2038;--card:#241028;--hero:#0f0511;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17081a;--ink:#f6eaf3;--mute:#b9a0b2;--acc:#ff6b87;--on:#1b0a19;--line:#3a2038;--card:#241028;--hero:#0f0511;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.6 Karla,system-ui,sans-serif}
+.w{max-width:1040px;margin:0 auto;padding:0 22px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.btn{display:inline-block;background:var(--acc);color:var(--on);border:0;border-radius:99px;padding:15px 30px;font:700 18px Karla,sans-serif;text-decoration:none;cursor:pointer}
+.btn.o{background:transparent;color:inherit;border:2px solid currentColor}
+.hero{background:var(--hero);color:#fbeff6;border-radius:0 0 44px 44px;padding-bottom:64px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+nav b{font:400 24px "Young Serif",Georgia,serif}
+nav a:not(.btn){color:inherit;text-decoration:none;margin-right:22px}
+nav .btn{padding:10px 22px}
+.g{display:grid;gap:40px;align-items:center}
+@media(min-width:860px){.g{grid-template-columns:1.05fr 1fr}}
+h1{font:400 clamp(40px,7vw,76px)/1.04 "Young Serif",Georgia,serif;margin:12px 0 20px}
+.hero p{font-size:20px;max-width:440px;opacity:.88;margin:0 0 28px}
+.hero .btn+.btn{margin-left:10px}
+.mos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.t{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:1}
+.t:nth-child(even){margin-top:30px}
+.t:nth-child(odd){margin-bottom:-30px}
+.t svg{width:100%;height:100%;display:block}
+.t span{position:absolute;left:10px;bottom:10px;background:rgba(20,5,20,.7);color:#fff;font-size:14px;padding:3px 12px;border-radius:99px}
+section{padding:72px 0}
+h2{font:400 clamp(30px,5vw,46px)/1.1 "Young Serif",Georgia,serif;margin:0 0 8px}
+.sub{color:var(--mute);margin:0 0 28px}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.tab{background:transparent;color:var(--ink);border:2px solid var(--line);border-radius:99px;padding:9px 22px;font:700 17px Karla,sans-serif;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#list{list-style:none;margin:0;padding:0;display:grid;gap:6px 56px}
+@media(min-width:800px){#list{grid-template-columns:1fr 1fr}}
+#list li{padding:12px 0}
+.h{display:flex;align-items:baseline;gap:8px}
+.h b{font-size:20px}
+.h i{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px)}
+.h span{color:var(--acc);font-weight:700;font-size:20px}
+#list p{margin:2px 0 0;color:var(--mute);font-size:16px}
+.facts{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
+.facts h3{font:400 24px "Young Serif",Georgia,serif;margin:0 0 6px}
+.facts p{margin:0;color:var(--mute)}
+footer{background:var(--hero);color:#fbeff6;border-radius:44px 44px 0 0;padding:52px 0 40px}
+footer .g{align-items:start}
+footer h2{margin-bottom:14px}
+footer a{color:inherit}
+footer ul{list-style:none;padding:0;margin:0}
+footer li{margin:6px 0}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:5;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+dialog{border:0;border-radius:24px;padding:28px;max-width:380px;width:calc(100% - 40px);background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(20,5,20,.65)}
+dialog h3{font:400 26px "Young Serif",Georgia,serif;margin:0 0 6px}
+dialog .btn{display:block;text-align:center;margin-top:12px}
+dialog .x{background:none;border:0;color:var(--mute);font:inherit;margin-top:14px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="hero"><div class="w">
+<nav><b>Osteria del Fico</b><div><a href="#menu">Menu</a><a href="#visit">Visit</a><a class="btn" href="#" data-order>Order now</a></div></nav>
+<div class="g">
+<div>
+<h1>Honest Italian cooking, made to share.</h1>
+<p>Wood-fired pizza, fresh pasta and slow-cooked meat, served at long tables under the fig tree.</p>
+<a class="btn" href="#" data-order>Order now</a><a class="btn o" href="#menu">See the menu</a>
+</div>
+<div class="mos" aria-label="Signature dishes">
+<div class="t"><svg viewBox="0 0 200 200" role="img" aria-label="Pizza"><rect width="200" height="200" fill="#f0b84a"/><circle cx="100" cy="100" r="80" fill="#d98f3a"/><circle cx="100" cy="100" r="68" fill="#c8321f"/><g fill="#fff0c2"><ellipse cx="78" cy="78" rx="20" ry="14"/><ellipse cx="124" cy="92" rx="22" ry="15"/><ellipse cx="96" cy="128" rx="24" ry="15"/><ellipse cx="60" cy="116" rx="12" ry="9"/></g><g fill="#8f1d1d"><circle cx="100" cy="64" r="9"/><circle cx="64" cy="98" r="8"/><circle cx="136" cy="126" r="9"/><circle cx="130" cy="70" r="7"/></g><g fill="#2f7a3f"><ellipse cx="100" cy="100" rx="11" ry="5" transform="rotate(-30 100 100)"/><ellipse cx="82" cy="108" rx="10" ry="4.5" transform="rotate(25 82 108)"/></g></svg><span>Diavola</span></div>
+<div class="t"><svg viewBox="0 0 200 200" role="img" aria-label="Pasta"><rect width="200" height="200" fill="#3f7d4e"/><circle cx="100" cy="100" r="84" fill="#fff"/><circle cx="100" cy="100" r="68" fill="#efe8e2"/><g fill="none" stroke="#f4d27a" stroke-width="9" stroke-linecap="round"><circle cx="100" cy="100" r="48"/><circle cx="100" cy="100" r="35"/><circle cx="100" cy="100" r="22"/></g><circle cx="100" cy="100" r="14" fill="#c8321f"/><g fill="#2f7a3f"><ellipse cx="96" cy="92" rx="10" ry="4.5" transform="rotate(-35 96 92)"/><ellipse cx="108" cy="96" rx="9" ry="4" transform="rotate(30 108 96)"/></g></svg><span>Tagliatelle al ragù</span></div>
+<div class="t"><svg viewBox="0 0 200 200" role="img" aria-label="Steak"><rect width="200" height="200" fill="#c2294b"/><circle cx="100" cy="100" r="84" fill="#fff"/><path d="M48 104c-6-26 22-48 54-46 34 2 52 24 44 50-8 24-44 36-74 26-14-5-21-17-24-30z" fill="#7a3b24"/><g stroke="#4a2012" stroke-width="5" stroke-linecap="round"><path d="M70 76l30 50M92 68l30 50M114 68l18 30"/></g><path d="M118 148c20-8 32-24 40-44" stroke="#2f7a3f" stroke-width="4" fill="none"/><g fill="#2f7a3f"><ellipse cx="150" cy="116" rx="8" ry="3" transform="rotate(-50 150 116)"/><ellipse cx="138" cy="134" rx="8" ry="3" transform="rotate(-40 138 134)"/></g><circle cx="58" cy="148" r="10" fill="#c8321f"/><circle cx="76" cy="156" r="8" fill="#c8321f"/></svg><span>Tagliata di manzo</span></div>
+<div class="t"><svg viewBox="0 0 200 200" role="img" aria-label="Tiramisu"><rect width="200" height="200" fill="#cdb4e4"/><ellipse cx="100" cy="150" rx="78" ry="14" fill="#fff"/><rect x="42" y="68" width="116" height="80" rx="6" fill="#c58a4b"/><rect x="42" y="84" width="116" height="16" fill="#f6e9cf"/><rect x="42" y="118" width="116" height="16" fill="#f6e9cf"/><path d="M42 74a6 6 0 0 1 6-6h104a6 6 0 0 1 6 6v10H42z" fill="#5a3420"/><g fill="#7a4a2a"><circle cx="64" cy="76" r="3"/><circle cx="96" cy="74" r="3"/><circle cx="128" cy="77" r="3"/></g><ellipse cx="108" cy="60" rx="9" ry="6" fill="#3a1f12"/></svg><span>Tiramisù</span></div>
+</div>
+</div>
+</div></div>
+
+<section id="menu"><div class="w">
+<h2>The menu</h2>
+<p class="sub">Everything is made to order. Tell us about allergies when you order.</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+<ul id="list"></ul>
+</div></section>
+
+<section style="padding-top:0"><div class="w facts">
+<div><h3>Dough rested 48 hours</h3><p>Light, airy and easy to digest, baked in a wood-fired oven.</p></div>
+<div><h3>Pasta made each morning</h3><p>Rolled and cut by hand before the doors open.</p></div>
+<div><h3>Family recipes</h3><p>Sauces simmered slowly, the way grandmother did.</p></div>
+</div></section>
+
+<footer id="visit"><div class="w g">
+<div><h2>Visit us</h2><p>Open Tuesday to Sunday, 12:00–23:00.<br>123 Fig Tree Lane, Your City</p><a class="btn" href="#" data-order>Order now</a></div>
+<div><h2>Get in touch</h2><ul>
+<li>Phone: +1 (555) 010-2030</li>
+<li>Email: <a href="mailto:hello@osteriadelfico.example">hello@osteriadelfico.example</a></li>
+<li><a href="#">Facebook</a> · <a href="#">Instagram</a> · <a href="#">WhatsApp</a></li>
+</ul></div>
+</div></footer>
+
+<a class="btn fab" href="#" data-order>Order now</a>
+
+<dialog id="d"><h3>How would you like to order?</h3><p>Pick the easiest way for you.</p>
+<a class="btn" href="tel:+15550102030">Call +1 (555) 010-2030</a>
+<a class="btn o" href="#">Order on WhatsApp</a>
+<button class="x" id="cl">Close</button></dialog>
+
+<script>
+var M={Pizza:[["Margherita",12,"Tomato, fior di latte, basil"],["Diavola",15,"Spicy salami, mozzarella, chili oil"],["Quattro Formaggi",16,"Mozzarella, gorgonzola, fontina, grana"],["Prosciutto e Funghi",16,"Ham, mushrooms, tomato, mozzarella"],["Capricciosa",17,"Artichokes, olives, ham, mushrooms"]],
+Pasta:[["Spaghetti Carbonara",16,"Guanciale, egg yolk, pecorino"],["Tagliatelle al Ragù",17,"Slow-cooked beef and pork sauce"],["Penne all’Arrabbiata",14,"Tomato, garlic, fresh chili"],["Lasagna della Nonna",17,"Béchamel, ragù, parmigiano"],["Gnocchi al Gorgonzola",16,"Potato gnocchi, walnuts"]],
+Meat:[["Bistecca alla Griglia",34,"12 oz ribeye, rosemary potatoes"],["Tagliata di Manzo",29,"Sliced sirloin, arugula, parmesan"],["Saltimbocca alla Romana",26,"Veal, prosciutto, sage, white wine"],["Pollo alla Cacciatora",22,"Chicken braised with tomato and olives"]],
+Dessert:[["Tiramisù",9,"Mascarpone, espresso, cocoa"],["Panna Cotta",8,"Vanilla cream, berry sauce"],["Cannoli Siciliani",8,"Ricotta, pistachio, chocolate"]]};
+var tabs=document.getElementById("tabs"),list=document.getElementById("list");
+function show(k){list.innerHTML=M[k].map(function(i){return "<li><div class='h'><b>"+i[0]+"</b><i></i><span>$"+i[1]+"</span></div><p>"+i[2]+"</p></li>"}).join("");
+[].forEach.call(tabs.children,function(b){b.setAttribute("aria-selected",b.textContent===k)})}
+Object.keys(M).forEach(function(k){var b=document.createElement("button");b.className="tab";b.setAttribute("role","tab");b.textContent=k;b.onclick=function(){show(k)};tabs.appendChild(b)});
+show("Pizza");
+var d=document.getElementById("d");
+[].forEach.call(document.querySelectorAll("[data-order]"),function(a){a.onclick=function(e){e.preventDefault();d.showModal()}});
+document.getElementById("cl").onclick=function(){d.close()};
+</script>
+</body>
+</html>

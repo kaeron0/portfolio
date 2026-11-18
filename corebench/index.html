@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corebench (labels, fixed layout) – PC repair, upgrades and custom builds</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05060c;--ink:#f1f4ff;--mute:#b3bddc;--acc:#5fe8ff;--line:rgba(255,255,255,.18);--h:190;--hr:0deg;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "IBM Plex Sans",system-ui,sans-serif}
+.bg{position:fixed;inset:0;z-index:-3;pointer-events:none;will-change:opacity}
+#b1{background:radial-gradient(ellipse 60% 70% at 50% 50%,hsl(190 90% 30%),transparent 72%),radial-gradient(ellipse 50% 40% at 0% 100%,hsl(290 85% 20%),transparent 70%),radial-gradient(ellipse 50% 40% at 100% 0%,hsl(130 85% 18%),transparent 70%),#05060c}
+#b2{background:radial-gradient(ellipse 60% 70% at 50% 50%,hsl(250 90% 32%),transparent 72%),radial-gradient(ellipse 50% 40% at 0% 100%,hsl(350 85% 22%),transparent 70%),radial-gradient(ellipse 50% 40% at 100% 0%,hsl(190 85% 20%),transparent 70%),#05060c}
+#b3{background:radial-gradient(ellipse 60% 70% at 50% 50%,hsl(325 90% 32%),transparent 72%),radial-gradient(ellipse 50% 40% at 0% 100%,hsl(40 85% 22%),transparent 70%),radial-gradient(ellipse 50% 40% at 100% 0%,hsl(270 85% 22%),transparent 70%),#05060c}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+#pc{position:fixed;left:50%;top:50%;height:min(92vh,740px);aspect-ratio:400/560;z-index:-2;overflow:visible;transform:translate(-50%,-50%);will-change:transform;pointer-events:none}
+.sp{transform-box:fill-box;transform-origin:center;animation:r 2.2s linear infinite}
+.pu{animation:pu 1.6s ease-in-out infinite alternate}
+@keyframes r{to{transform:rotate(360deg)}}
+@keyframes pu{from{opacity:.35}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.sp,.pu{animation:none}}
+.w{width:100%;max-width:1500px;margin:0 auto;padding:0 4vw}
+nav{position:sticky;top:0;z-index:4;display:flex;justify-content:space-between;align-items:center;padding:16px 4vw;max-width:1500px;margin:0 auto}
+nav b{font:700 22px "Space Grotesk",sans-serif;text-shadow:0 0 12px #000}
+nav a{color:var(--ink);text-decoration:none;margin-left:20px;text-shadow:0 0 12px #000}
+section{min-height:58vh;display:flex;align-items:center;padding:18px 0}section:first-of-type{min-height:88vh}
+.p{width:100%;max-width:380px;background:rgba(6,9,20,.64);border:1px solid var(--line);border-radius:22px;padding:26px;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.r .p{margin-left:auto}
+h1{font:700 clamp(38px,5.2vw,62px)/1.02 "Space Grotesk",sans-serif;margin:0 0 14px;letter-spacing:-.02em}
+h2{font:700 clamp(26px,3.4vw,36px)/1.1 "Space Grotesk",sans-serif;margin:0 0 16px;letter-spacing:-.01em}
+.p>p{color:var(--mute);margin:0 0 18px}
+.btn{display:inline-block;background:var(--acc);color:#04121a;border:0;border-radius:12px;padding:13px 24px;font:700 17px "Space Grotesk",sans-serif;text-decoration:none;cursor:pointer;text-shadow:none}
+.btn.o{background:transparent;color:var(--ink);border:2px solid var(--line);margin-left:6px}
+ul.pr{list-style:none;margin:0;padding:0}
+ul.pr li{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid var(--line)}
+ul.pr li:last-child{border:0}
+ul.pr b{font-family:"Space Grotesk",sans-serif;color:var(--acc);white-space:nowrap}
+ul.pr small{display:block;color:var(--mute);font-size:14px}
+ol{margin:0;padding:0;list-style:none;counter-reset:s}
+ol li{counter-increment:s;padding:9px 0 9px 52px;position:relative}
+ol li::before{content:counter(s);position:absolute;left:0;top:8px;width:36px;height:36px;border-radius:50%;border:2px solid var(--acc);color:var(--acc);display:grid;place-items:center;font:700 17px "Space Grotesk"}
+ol b{display:block}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tags span{border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-size:15px;background:rgba(0,0,0,.25)}
+details{border-top:1px solid var(--line);padding:11px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:8px 0 0;color:var(--mute)}
+label{display:block;font-weight:600;margin:12px 0 6px}
+input,textarea{width:100%;font:inherit;padding:12px;border-radius:10px;border:2px solid var(--line);background:rgba(255,255,255,.08);color:var(--ink)}
+footer{text-align:center;padding:36px 22px 56px;color:var(--mute);font-size:15px;background:rgba(5,6,12,.85)}
+@media(max-width:900px){#pc{opacity:.5}.r .p{margin-left:0}.p{max-width:none;background:rgba(6,9,20,.7)}section{min-height:46vh}section:first-of-type{min-height:72vh}}
+.lb text{fill:#eaf6ff;font:600 14px "Space Grotesk",sans-serif;paint-order:stroke;stroke:rgba(5,6,12,.95);stroke-width:4px;stroke-linejoin:round}.lb line{stroke:#5fe8ff;stroke-width:1.6}.lb{opacity:0}
+</style>
+</head>
+<body>
+<div class="bg" id="b1"></div><div class="bg" id="b2" style="opacity:0"></div><div class="bg" id="b3" style="opacity:0"></div>
+<svg id="pc" viewBox="0 0 400 560" aria-hidden="true">
+<defs>
+<linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop id="st1" offset="0" stop-color="#22e6ff"/><stop id="st2" offset=".5" stop-color="#7a5cff"/><stop id="st3" offset="1" stop-color="#ff2bd6"/></linearGradient>
+<linearGradient id="cs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#121a36"/><stop offset="1" stop-color="#070a16"/></linearGradient>
+<linearGradient id="gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset=".4" stop-color="#fff" stop-opacity=".02"/><stop offset=".75" stop-color="#fff" stop-opacity=".0"/><stop offset="1" stop-color="#fff" stop-opacity=".12"/></linearGradient>
+<filter id="bl" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="9"/></filter>
+<g id="bd" fill="rgba(200,220,255,.42)"><ellipse cx="0" cy="-15" rx="7" ry="13"/><ellipse cx="0" cy="-15" rx="7" ry="13" transform="rotate(60)"/><ellipse cx="0" cy="-15" rx="7" ry="13" transform="rotate(120)"/><ellipse cx="0" cy="-15" rx="7" ry="13" transform="rotate(180)"/><ellipse cx="0" cy="-15" rx="7" ry="13" transform="rotate(240)"/><ellipse cx="0" cy="-15" rx="7" ry="13" transform="rotate(300)"/><circle r="6" fill="#0a0e1c"/></g>
+<g id="fn"><circle r="36" fill="#080c1a" stroke="url(#rg)" stroke-width="5"/><circle r="30" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1.5"/><use href="#bd" class="sp"/></g>
+</defs>
+<ellipse cx="200" cy="548" rx="175" ry="12" fill="url(#rg)" opacity=".7" filter="url(#bl)"/>
+<g><rect x="60" y="20" width="280" height="520" rx="24" fill="url(#cs)" stroke="url(#rg)" stroke-width="3"/><rect x="70" y="30" width="260" height="500" rx="18" fill="none" stroke="rgba(255,255,255,.07)"/><rect x="333" y="42" width="4" height="476" rx="2" fill="url(#rg)"/></g>
+<g data-x="25" data-y="0" data-label="Motherboard" data-side="r" data-lx="325" data-ly="265"><rect x="140" y="45" width="185" height="345" rx="10" fill="#0f1731" stroke="#33478a" stroke-width="2"/><rect x="148" y="55" width="16" height="64" rx="3" fill="#1b2756" stroke="#4863b8"/><rect x="170" y="52" width="58" height="12" rx="3" fill="#1b2756" stroke="#4863b8"/><rect x="262" y="330" width="52" height="46" rx="6" fill="#1b2756" stroke="#4863b8"/><path d="M160 200h50l20 30h60M160 250h80M300 70v120M175 80v90h40M160 140h-8v120" stroke="#2b3a66" stroke-width="3" fill="none"/></g>
+<g data-x="60" data-y="45" data-label="NVMe SSD" data-side="r" data-lx="320" data-ly="214"><rect x="258" y="205" width="62" height="18" rx="3" fill="#1b2756" stroke="#22e6ff" stroke-width="1.5"/><rect x="264" y="209" width="14" height="10" fill="#33478a"/></g>
+<g data-x="85" data-y="-65" data-label="RAM" data-side="r" data-lx="312" data-ly="116"><rect x="252" y="68" width="12" height="96" rx="3" fill="#1a2348" stroke="#33478a"/><rect x="268" y="68" width="12" height="96" rx="3" fill="#1a2348" stroke="#33478a"/><rect x="284" y="68" width="12" height="96" rx="3" fill="#1a2348" stroke="#33478a"/><rect x="300" y="68" width="12" height="96" rx="3" fill="#1a2348" stroke="#33478a"/><rect class="pu" x="252" y="68" width="12" height="12" fill="#22e6ff"/><rect class="pu" style="animation-delay:.3s" x="268" y="68" width="12" height="12" fill="#7a5cff"/><rect class="pu" style="animation-delay:.6s" x="284" y="68" width="12" height="12" fill="#ff2bd6"/><rect class="pu" style="animation-delay:.9s" x="300" y="68" width="12" height="12" fill="#22e6ff"/></g>
+<g data-x="5" data-y="-120" data-label="Radiator" data-side="r" data-lx="315" data-ly="46"><rect x="145" y="34" width="170" height="24" rx="5" fill="#0e1630" stroke="#33478a" stroke-width="2"/><path d="M158 34v24M170 34v24M182 34v24M194 34v24M206 34v24M218 34v24M230 34v24M242 34v24M254 34v24M266 34v24M278 34v24M290 34v24M302 34v24" stroke="#22304f" stroke-width="2"/></g>
+<g data-x="-25" data-y="-80" data-label="CPU cooler" data-side="l" data-lx="166" data-ly="127"><rect x="166" y="80" width="94" height="94" rx="18" fill="#080c1a" stroke="url(#rg)" stroke-width="3"/><use href="#fn" transform="translate(213 127) scale(1.12)"/></g>
+<g data-x="-95" data-y="35" data-label="GPU" data-side="l" data-lx="132" data-ly="310"><rect x="132" y="276" width="204" height="68" rx="10" fill="#0c1124" stroke="url(#rg)" stroke-width="3"/><use href="#fn" transform="translate(186 310) scale(.86)"/><use href="#fn" transform="translate(280 310) scale(.86)"/><rect x="138" y="279" width="192" height="2.5" fill="url(#rg)"/><rect x="138" y="338" width="192" height="3" fill="url(#rg)"/></g>
+<g data-x="0" data-y="115" data-label="Power supply" data-side="r" data-lx="340" data-ly="486"><rect x="100" y="450" width="240" height="72" rx="10" fill="#0c1124" stroke="#33478a" stroke-width="2"/><use href="#fn" transform="translate(160 486) scale(.82)"/><path d="M218 470h104M218 486h104M218 502h104" stroke="#2b3a66" stroke-width="3"/><path d="M230 450C232 420 252 410 250 346" stroke="url(#rg)" stroke-width="4" fill="none"/></g>
+<g data-x="-70" data-y="0" data-label="Case fans" data-side="l" data-lx="62" data-ly="218"><use href="#fn" transform="translate(98 112)"/><use href="#fn" transform="translate(98 218)"/><use href="#fn" transform="translate(98 324)"/></g>
+<g data-x="140" data-y="0" data-fade="1"><rect x="60" y="20" width="280" height="520" rx="24" fill="url(#gl)" stroke="rgba(255,255,255,.35)" stroke-width="2"/></g>
+</svg>
+
+<nav><b>Corebench</b><div><a href="#problems">Problems</a><a href="#services">Prices</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div></nav>
+
+<section><div class="w"><div class="p">
+<h1>Your PC isn’t dead. Let’s prove it.</h1>
+<p>Repairs, upgrades and custom builds by technicians who love hardware. Scroll down and watch a PC come apart.</p>
+<a class="btn" href="#contact">Get a free quote</a><a class="btn o" href="#services">See prices</a>
+<div class="tags"><span>Quote in 24 hours</span><span>Fixed in 1–3 days</span><span>90-day warranty</span></div>
+</div></div></section>
+
+<section id="problems" class="r"><div class="w"><div class="p">
+<h2>What we fix</h2>
+<ul class="pr">
+<li><span>Won’t turn on<small>Power supply, motherboard or a loose cable</small></span></li>
+<li><span>Blue screens and restarts<small>Faulty RAM, drivers or a failing drive</small></span></li>
+<li><span>Overheating and loud fans<small>Dust, dry thermal paste, bad airflow</small></span></li>
+<li><span>No picture on screen<small>Graphics card, cable or monitor fault</small></span></li>
+<li><span>Slow and freezing<small>Old drive, malware or too little memory</small></span></li>
+<li><span>Water or power damage<small>Cleaning, board repair, data rescue</small></span></li>
+</ul></div></div></section>
+
+<section id="services"><div class="w"><div class="p">
+<h2>Repair prices</h2>
+<ul class="pr">
+<li><span>Diagnostics<small>Free if you repair with us</small></span><b>$29</b></li>
+<li><span>Virus and malware removal</span><b>$59</b></li>
+<li><span>Slow PC tune-up</span><b>$49</b></li>
+<li><span>Clean and repaste<small>Fans, dust, new thermal paste</small></span><b>$45</b></li>
+<li><span>Hardware repair<small>Parts at cost</small></span><b>from $69</b></li>
+</ul></div></div></section>
+
+<section class="r"><div class="w"><div class="p">
+<h2>Upgrades and builds</h2>
+<ul class="pr">
+<li><span>RAM, SSD or GPU install</span><b>$39</b></li>
+<li><span>Laptop screen or battery</span><b>from $79</b></li>
+<li><span>Data recovery</span><b>from $99</b></li>
+<li><span>Custom PC assembly<small>You pick the parts, we build it</small></span><b>$149</b></li>
+<li><span>Cable management and RGB setup</span><b>$59</b></li>
+</ul></div></div></section>
+
+<section id="how"><div class="w"><div class="p">
+<h2>How it works</h2>
+<ol>
+<li><b>Bring it in or ship it</b>Tell us what is wrong.</li>
+<li><b>Free quote in 24 hours</b>You approve before we start.</li>
+<li><b>Repair in 1 to 3 days</b>We send photos of what we changed.</li>
+<li><b>Pick up and play</b>Every repair has a 90-day warranty.</li>
+</ol></div></div></section>
+
+<section class="r"><div class="w"><div class="p">
+<h2>Parts and brands we work with</h2>
+<p>Desktops, gaming PCs and laptops. If it has a power button, we can look at it.</p>
+<div class="tags"><span>ASUS</span><span>MSI</span><span>Gigabyte</span><span>Dell</span><span>HP</span><span>Lenovo</span><span>NVIDIA</span><span>AMD</span><span>Intel</span><span>Samsung</span><span>Corsair</span><span>Seagate</span></div>
+</div></div></section>
+
+<section><div class="w"><div class="p">
+<h2>No fix, no fee.</h2>
+<p>If we can’t fix it, you pay nothing for the repair. You only pay for diagnostics if you ask for a written report.</p>
+<div class="tags"><span>90-day warranty</span><span>Free quotes</span><span>Your data stays private</span></div>
+</div></div></section>
+
+<section id="faq" class="r"><div class="w"><div class="p">
+<h2>Questions</h2>
+<details><summary>How long does a repair take?</summary><p>Most repairs take 1 to 3 days. Parts that must be ordered can add a few days, and we tell you before we start.</p></details>
+<details><summary>Do you fix laptops too?</summary><p>Yes. Screens, batteries, keyboards, fans and software problems.</p></details>
+<details><summary>Is my data safe?</summary><p>We never open your personal files. For repairs that risk data, we back up first, with your permission.</p></details>
+<details><summary>How is the price decided?</summary><p>You get a written quote after diagnostics. Nothing is done until you say yes.</p></details>
+<details><summary>Can I ship my PC to you?</summary><p>Yes. We send packing instructions and cover return shipping on repairs over $150.</p></details>
+</div></div></section>
+
+<section id="contact"><div class="w"><div class="p">
+<h2>Tell us what’s wrong</h2>
+<p>Phone: +1 (555) 010-4455<br>Email: hello@corebench.example<br>12 Circuit Road, Your City<br>Mon–Sat 9:00–19:00</p>
+<form id="f">
+<label for="e">Your email</label><input id="e" type="email" required>
+<label for="m">What is the PC doing?</label><textarea id="m" rows="3" required></textarea>
+<p><button class="btn" type="submit">Send</button></p>
+<p id="s" role="status" style="color:var(--mute);margin:0"></p>
+</form></div></div></section>
+
+<footer>Corebench is a concept site for a portfolio. Name, prices and contacts are placeholders.</footer>
+
+<script>
+var L=[];
+[].forEach.call(document.querySelectorAll("[data-label]"),function(g){
+var l=g.dataset.side=="l",ns="http://www.w3.org/2000/svg",G=document.createElementNS(ns,"g"),ln=document.createElementNS(ns,"line"),tx=document.createElementNS(ns,"text"),x0=+g.dataset.lx,y=+g.dataset.ly;
+G.setAttribute("class","lb");
+ln.setAttribute("x1",x0);ln.setAttribute("x2",x0+(l?-24:24));ln.setAttribute("y1",y);ln.setAttribute("y2",y);
+tx.setAttribute("x",x0+(l?-30:30));tx.setAttribute("y",y+5);tx.setAttribute("text-anchor",l?"end":"start");tx.textContent=g.dataset.label;
+G.appendChild(ln);G.appendChild(tx);g.appendChild(G);L.push(G)});
+window.lbl=function(e){var o=Math.max(0,Math.min(1,(e-.12)*2.2));L.forEach(function(G){G.style.opacity=o})};
+</script>
+<script>
+var gs=[].slice.call(document.querySelectorAll("[data-x]")),svg=document.getElementById("pc"),root=document.documentElement,b2=document.getElementById("b2"),b3=document.getElementById("b3"),
+st=[1,2,3].map(function(i){return document.getElementById("st"+i)}),tg=0,cur=0,run=false;
+function aim(){var h=root.scrollHeight-innerHeight;tg=h>0?Math.min(Math.max(scrollY/h,0),1):0;if(!run){run=true;requestAnimationFrame(tick)}}
+function tick(){cur+=(tg-cur)*.1;if(Math.abs(tg-cur)<.0004)cur=tg;draw(cur);if(cur!==tg)requestAnimationFrame(tick);else run=false}
+function draw(s){var e=Math.sin(Math.PI*s);
+gs.forEach(function(g){g.setAttribute("transform","translate("+(g.dataset.x*e).toFixed(2)+" "+(g.dataset.y*e).toFixed(2)+")");if(g.dataset.fade)g.style.opacity=(1-e*.75).toFixed(3)});
+svg.style.transform="translate(-50%,-50%) rotate("+((s-.5)*14).toFixed(2)+"deg) scale("+(1+e*.08).toFixed(3)+")";
+b2.style.opacity=Math.min(1,s*2).toFixed(3);b3.style.opacity=Math.max(0,(s-.5)*2).toFixed(3);
+var h0=190+s*150;st[0].style.stopColor="hsl("+h0.toFixed(0)+" 100% 60%)";st[1].style.stopColor="hsl("+(h0+70).toFixed(0)+" 95% 62%)";st[2].style.stopColor="hsl("+(h0+130).toFixed(0)+" 100% 62%)";
+if(window.lbl)lbl(e)}
+addEventListener("scroll",aim,{passive:true});addEventListener("resize",aim);
+aim();cur=tg;draw(cur);
+document.getElementById("f").addEventListener("submit",function(e){e.preventDefault();document.getElementById("s").textContent="Thank you. This is a demo form, nothing was sent."});
+</script>
+</body>
+</html>
